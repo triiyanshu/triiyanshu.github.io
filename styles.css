@@ -4,7 +4,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Product Sans", Arial, sans-serif;
 }
 
 .black-header {
@@ -43,12 +43,38 @@ body {
     border-radius: 5px;
 }
 
+/* LinkedIn Button */
+.social-button[href*="bit.ly/triyanshulinkedin"] {
+    background-color: #0072b1;
+}
+
+/* GitHub Button */
+.social-button[href*="bit.ly/triyanshugithub"] {
+    background-color: #6cc644;
+}
+
+/* Instagram Button */
+.social-button[href*="bit.ly/triyanshuinstagram"] {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+}
+
+/* Twitter Button */
+.social-button[href*="bit.ly/triyanshutwitter"] {
+    background-color: black;
+    color: white;
+}
+
 .black-footer {
     background-color: black;
     color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -56,7 +82,18 @@ body {
 }
 
 .contacts {
-    text-align: right;
+    background-color: transparent;
+    color: white;
+    border: none;
+    box-align: right;
+}
+
+.white-button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    box-align: left;
+    text-decoration: none;
 }
 
 /* Add any additional styles and animations here */
