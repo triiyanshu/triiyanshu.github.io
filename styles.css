@@ -8,6 +8,66 @@ body {
     background: linear-gradient(to right, rgba(228, 251, 255, 0.7), rgba(34, 54, 57, 0.7));
 }
 
+.slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.slide-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 3s ease;
+}
+
+.slide-image.active {
+    opacity: 1;
+}
+
+/* Additional CSS for the header */
+header {
+    /* Apply the blur effect */
+    backdrop-filter: blur(5px);
+    /* Position the pseudo-element on top of the header */
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    /* Create a new gradient with reduced opacity */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right rgba(228, 251, 255, 0.03), rgba(34, 54, 57, 0.03));
+    z-index: -1;
+}
+
+/* CSS variables to hold the color values */
+:root {
+    --header-text-color: white; /* Default text color for the header */
+}
+
+/* Apply the color to the header text */
+header h1, header p {
+    color: var(--header-text-color);
+}
+
+/* Also, update the button text color */
+.social-button {
+    color: var(--header-text-color);
+}
+
 .black-header {
     background: linear-gradient(to right, rgba(228, 251, 255, 0.7), rgba(34, 54, 57, 0.7));
     color: black;
