@@ -5,19 +5,27 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Product Sans", Arial, sans-serif;
-    background: linear-gradient(to right, rgba(228, 251, 255, 0.7), rgba(34, 54, 57, 0.7));;
+    background: linear-gradient(to right, rgba(228, 251, 255, 0.7), rgba(34, 54, 57, 0.7));
 }
 
 .black-header {
-    background: linear-gradient(to right, rgba(228, 251, 255, 0.7)), rgba(34, 54, 57, 0.7);;
+    background: linear-gradient(to right, rgba(228, 251, 255, 0.7), rgba(34, 54, 57, 0.7));
     color: black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
 }
 
-
-
+/* Add media query for mobile devices */
+@media only screen and (max-width: 600px) {
+  .black-header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-right {
+    margin-top: 10px;
+  }
+}
 
 .header-left h1 {
     margin: 0;
@@ -35,6 +43,8 @@ body {
 
 .buttons-container {
     display: flex;
+    flex-wrap: wrap; /* Ensure buttons wrap to the next line on small screens */
+    justify-content: center; /* Center the buttons horizontally */
 }
 
 .social-button {
@@ -102,13 +112,4 @@ body {
 
 /* Add any additional styles and animations here */
 /* You can create a CSS file just for animations and link it here */
-@media only screen and (max-width: 600px) {
-    .buttons-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .social-button {
-      padding: 20px 40px;
-    }
-  }
+
