@@ -50,7 +50,7 @@ body {
 .social-button {
     display: block;
     margin: 10px;
-    width: 100px; /* Fixed width for each button */
+    width: 200px; /* Fixed width for each button */
     height: 50px; /* Fixed height for each button */
     background-color: #4CAF50;
     color: white;
