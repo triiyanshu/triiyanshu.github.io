@@ -78,13 +78,30 @@ header h1, header p {
 
 /* Add media query for mobile devices */
 @media only screen and (max-width: 600px) {
-  .black-header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .header-right {
-    margin-top: 10px;
-  }
+    header {
+        /* Remove the gradient background and keep the blur effect */
+        background: rgba(228, 251, 255, 0.7);
+        backdrop-filter: blur(5px);
+        /* Increase header height and padding for better visibility */
+        height: 100px;
+        padding: 20px;
+    }
+
+    .center-container {
+        /* Adjust the padding for better visibility of social buttons on mobile */
+        padding-bottom: 120px;
+    }
+
+    .black-footer {
+        /* Increase footer height for better visibility */
+        height: 80px;
+    }
+
+    .contacts {
+        /* Adjust the position of the contacts text */
+        position: relative;
+        bottom: 10px;
+    }
 }
 
 .header-left h1 {
@@ -99,6 +116,7 @@ header h1, header p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 80px; /* Adjust the padding as needed */
 }
 
 .buttons-container {
