@@ -50,14 +50,14 @@ body {
 .social-button {
     display: block;
     margin: 10px;
-    flex: 0 0 200px; /* Set a fixed width for all buttons */
-    height: 50px; /* Optionally, set a fixed height for all buttons */
-    line-height: 50px; /* Vertically center the text in the button */
+    width: 100px; /* Fixed width for each button */
+    height: 50px; /* Fixed height for each button */
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     text-align: center; /* Center the text horizontally */
+    line-height: 50px; /* Vertically center the text in the button */
 }
 
 /* LinkedIn Button */
