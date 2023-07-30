@@ -102,3 +102,13 @@ body {
 
 /* Add any additional styles and animations here */
 /* You can create a CSS file just for animations and link it here */
+@media only screen and (max-width: 600px) {
+    .buttons-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .social-button {
+      padding: 20px 40px;
+    }
+  }
