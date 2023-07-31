@@ -53,6 +53,22 @@ header::before {
     z-index: -1;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    max-width: 50%; /* Ensure the logo doesn't exceed its container's width */
+    height: auto; /* Maintain the aspect ratio while scaling */
+    margin-right: 10px; /* Add some space between the logo and the text */
+}
+
+@media only screen and (max-width: 30px) {
+    .header-left img {
+        max-width: 150px; /* Reduce the maximum width for smaller screens */
+    }
+}
 /* CSS variables to hold the color values */
 :root {
     --header-text-color: white; /* Default text color for the header */
