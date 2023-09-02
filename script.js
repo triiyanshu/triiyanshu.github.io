@@ -15,80 +15,12 @@ function invertColor(color) {
     return rgbToHex(invertedR, invertedG, invertedB);
 }
 
-// Helper function to get the dominant color of an image using a canvas
-function getDominantColor(imageUrl) {
-    return new Promise(resolve => {
-        const image = new Image();
-        image.crossOrigin = "Anonymous";
-        image.src = imageUrl;
-        image.onload = () => {
-            const canvas = document.createElement("canvas");
-            canvas.width = image.width;
-            canvas.height = image.height;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(image, 0, 0);
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-            const color = getDominantColorFromImageData(imageData);
-            resolve(color);
-        };
+// Get the dominant color of a given image URL and apply it to the header background color
+function setHeaderBackgroundColor(imageUrl) {
+    getDominantColor(imageUrl).then(color => {
+        document.querySelector(".header").style.backgroundColor = color;
     });
 }
 
-// Helper function to get the dominant color from image data
-function getDominantColorFromImageData(imageData) {
-    const colorMap = new Map();
-    for (let i = 0; i < imageData.length; i += 4) {
-        const r = imageData[i];
-        const g = imageData[i + 1];
-        const b = imageData[i + 2];
-        const color = rgbToHex(r, g, b);
-        colorMap.set(color, (colorMap.get(color) || 0) + 1);
-    }
-    return [...colorMap.entries()].reduce((a, b) => (a[1] > b[1] ? a : b))[0];
-}
-
-const slideImages = document.querySelectorAll(".slide-image");
-let currentSlide = 0;
-
-function showSlide(slideIndex) {
-    slideImages.forEach((image, index) => {
-        if (index === slideIndex) {
-            image.classList.add("active");
-            // Get the dominant color of the current slide's image and set it as the header text color
-            getDominantColor(image.src).then(color => {
-                document.documentElement.style.setProperty("--header-text-color", invertColor(color));
-                document.getElementById("social-heading").style.color = invertColor(color);
-            });
-        } else {
-            image.classList.remove("active");
-        }
-    });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slideImages.length;
-    showSlide(currentSlide);
-}
-
-function startSlideshow() {
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
-}
-
-startSlideshow();
-
-// Add your desired JavaScript code here
-// You can use JavaScript to handle scrolling and animations
-
-// Example: Hiding header on scroll
-let prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-    let currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-        document.querySelector("header").style.top = "0";
-    } else {
-        if (currentScrollPos > window.innerHeight * 0.25) {
-            document.querySelector("header").style.top = "-50px"; // Adjust this value based on the header's height
-        }
-    }
-    prevScrollpos = currentScrollPos;
-};
+// Call the function to set the initial header background color based on the first image
+setHeaderBackgroundColor("Images/bg1.jpg");
